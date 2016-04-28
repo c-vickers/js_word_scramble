@@ -19,14 +19,33 @@
             var randomWord = WORDS[randomIndex];
             console.log(randomWord);
 
+            // function scramblingWord(word) {
+            //     var scrambledWord = word.shuffle();
+            //     console.log(scrambledWord);
+            //     return scrambledWord;
+
+            // }
+
+            String.prototype.shuffle = function () {
+            var a = this.split(""),
+            n = a.length;
+            for(var i = n - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var tmp = a[i];
+            a[i] = a[j];
+            a[j] = tmp;
+            }
+            return a.join("");
+            }
             // Grab the corresponding scrambled word from the SCRAMBLED array
-            var scrambledWord = SCRAMBLED[randomIndex];
+            var scrambledWord = randomWord.shuffle();
 
             // prompt the user to guess the original word when given the scrambled word
             var guess = prompt("Can you unscramble this word?  " + scrambledWord);
 
             // If the user guesses wrong, tell them they were wrong and the right word.
-            if (guess != randomWord){
+            guess = guess.trim()
+            if (guess.toLowerCase() != randomWord){
                 alert("That's not it! The word is "+ randomWord+". :(");
             }
 
