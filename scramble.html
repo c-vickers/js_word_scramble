@@ -16,15 +16,14 @@
 
             // Grab a random word from the WORDS array
             var randomIndex = Math.floor(Math.random()*4);
-            var randomWord = WORDS [randomIndex];
+            var randomWord = WORDS[randomIndex];
             console.log(randomWord);
 
             // Grab the corresponding scrambled word from the SCRAMBLED array
-            var scrambledWord = SCRAMBLED [randomIndex];
-            alert(scrambledWord);
+            var scrambledWord = SCRAMBLED[randomIndex];
 
             // prompt the user to guess the original word when given the scrambled word
-            var guess = prompt("Can you unscramble the word?");
+            var guess = prompt("Can you unscramble this word?  " + scrambledWord);
 
             // If the user guesses wrong, tell them they were wrong and the right word.
             if (guess != randomWord){
